@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const serverURL = "http://localhost:4000";
+// const serverURL = "http://localhost:4000";
 
-// const serverURL = "https://certificate-generator-server.onrender.com";
+const serverURL = "https://certificate-generator-server.onrender.com";
 
 export const submitDetails = async (userData) => {
 	try {
