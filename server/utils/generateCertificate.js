@@ -53,7 +53,7 @@ export default async function generateCertificate({ userData }) {
 				const userDataText = `Name: ${name}\nEmail: ${email}\nCollege: ${college_name}\nCreated At: ${createdAt.toString()}\nUnique Url: ${uniqueUrl}`;
 				page.setFontSize(15);
 				page.setFontColor(rgb(0, 0.43, 0.71));
-				page.drawText(userDataText, { x: 50, y: 650, lineHeight: 20, maxWidth: 500 }); 
+				page.drawText(userDataText, { x: 50, y: 650, lineHeight: 20, maxWidth: 450 }); 
 
 				// Embed QR code image
 				const qrCodeImage = await pdfDoc.embedPng(qrCodeData);
