@@ -46,7 +46,7 @@ const Home = () => {
 			toast.error("An error occurred. Please try again later.");
 		}
 
-		// setUserData(defaultUserDetails);
+		setUserData(defaultUserDetails);
 	};
 
 

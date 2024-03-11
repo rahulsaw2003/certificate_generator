@@ -1,4 +1,4 @@
-import { PDFDocument, rgb } from "pdf-lib";
+import { PDFDocument, rgb, degrees } from "pdf-lib";
 import fs from "fs";
 
 export default async function generateCertificate({ userData }) {
@@ -14,6 +14,24 @@ export default async function generateCertificate({ userData }) {
 
 				// Add a new page
 				const page = pdfDoc.addPage([600, 800]); // Set page size to fit A4 paper
+
+				const logoWidth = 280;
+				const logoHeight = 280;
+				const logoMarginX = (page.getWidth() - logoWidth) / 2;
+				const logoMarginY = (page.getHeight() - logoHeight) / 2;
+
+				const backgroundImageBytes = fs.readFileSync("./assets/iitrpr-logo.png");
+				const backgroundImage = await pdfDoc.embedPng(backgroundImageBytes);
+				page.drawImage(backgroundImage, {
+					x: logoMarginX,
+					y: logoMarginY,
+					width: logoWidth,
+					height: logoHeight,
+					rotate: degrees(0),
+					opacity: 0.8,
+				});
+
+
 
 				page.setFontSize(32);
 				page.setFontColor(rgb(0, 0, 0.45)); // Black color
